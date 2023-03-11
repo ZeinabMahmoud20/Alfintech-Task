@@ -27,11 +27,12 @@ Route::post('auth/addToken', [TokenController::class, 'store']);
 //register user
 // Route::post('user/register', [RegisterController::class, 'register']);
 
-Route::controller(RegisterController::class)->group(function(){
+Route::controller(RegisterController::class)->group(function () {
     Route::post('user/register', 'register');
     Route::post('user/login', 'login');
 });
 
-//srore a store
-Route::post('store/add', [StoreController::class, 'store']);
-
+Route::middleware('auth:sanctum')->group(function () {
+    //srore a store
+    Route::post('store/add', [StoreController::class, 'store']);
+});

@@ -6,17 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Store extends Model
+class Product extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable = [
         'name',
-        'description',
-        'user_id'
+        'price',
+        'VAT',
+        'VAT_percentage',
+        'VAT_value',
+        'paied_price',
+        'store_id',
+        'shipping_cost',
+        
     ];
-
-    public function users()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
