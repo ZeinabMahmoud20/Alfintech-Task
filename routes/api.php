@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\TokenController;
+use App\Http\Controllers\StoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //add token 
 Route::post('auth/addToken', [TokenController::class, 'store']);
+
+//register user
+Route::post('user/register', [RegisterController::class, 'register']);
+
+//srore a store
+Route::post('store/add', [StoreController::class, 'store']);
+
